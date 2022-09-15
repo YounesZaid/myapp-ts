@@ -1,26 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Input } from './components/input';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+	const [todo, setTodo] = useState<string>('');
+	console.log(todo);
+	return (
+		<div className='app'>
+			<header className='app__header'>
+				<img src={logo} className='app__header__logo' alt='logo' />
+			</header>
+			<div className='app__taskify'>
+				<span>Taskify</span>
+				<Input todo={todo} setTodo={setTodo} />
+			</div>
+		</div>
+	);
+};
 
 export default App;
